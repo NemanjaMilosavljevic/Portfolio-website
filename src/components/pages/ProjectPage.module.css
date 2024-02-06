@@ -86,7 +86,7 @@
   color: var(--white-color);
   font-size: 3rem;
   font-weight: 300;
-  margin: 4rem 0;
+  margin: 1rem 0;
 }
 
 :is(.description-1, .description-2, .description-3) p {
@@ -175,10 +175,6 @@ video::-webkit-media-controls-timeline {
       "image-3 description-3"
       "add-content add-content"
       "nav-left nav-right";
-  }
-
-  :is(.description-1, .description-2, .description-3) h1 {
-    margin: 1rem 0;
   }
 
   .video {
