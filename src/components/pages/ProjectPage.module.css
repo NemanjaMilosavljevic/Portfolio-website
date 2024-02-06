@@ -1,14 +1,14 @@
 .grid {
   display: grid;
-  grid-template-columns: 150px 1fr 1fr 150px;
+  grid-template-columns: 100px 1fr 1fr;
   grid-template-areas:
-    ". heading text-heading ."
-    ". video   video        ."
-    "side-1 image-1 description-1 side-2"
-    ". image-2 description-2 ."
-    "side-3 image-3 description-3 side-4"
-    "add-content add-content add-content add-content"
-    ". nav-left nav-right .";
+    ". heading text-heading "
+    ". video   video        "
+    "side-1 image-1 description-1 "
+    ". image-2 description-2 "
+    "side-2 image-3 description-3 "
+    "add-content add-content add-content "
+    ". nav-left nav-right ";
   font-family: "Satoshi", sans-serif;
   position: relative;
 }
@@ -31,12 +31,12 @@
   grid-area: text-heading;
   margin-top: 1.75rem;
   padding: 0 70px;
-  font-size: 1rem;
+  font-size: 0.9rem;
 }
 
 .video {
   grid-area: video;
-  width: 100%;
+  width: 95%;
   outline: 2px solid black;
   border-radius: 10px;
   margin-bottom: 2rem;
@@ -50,6 +50,7 @@
 .description-1 {
   grid-area: description-1;
   background-color: var(--bgc-body);
+  min-width: min-content;
 }
 
 .description-1 p {
@@ -79,7 +80,7 @@
 }
 
 :is(.description-1, .description-2, .description-3) {
-  padding: 0 70px;
+  padding: 0 50px;
 }
 
 :is(.description-1, .description-2, .description-3) h1 {
@@ -92,7 +93,8 @@
 :is(.description-1, .description-2, .description-3) p {
   text-align: left;
   font-weight: 300;
-  font-size: 1rem;
+  font-size: 0.9rem;
+  margin: 0;
 }
 
 .description-2 h1 {
@@ -105,14 +107,6 @@
 }
 .side-2 {
   grid-area: side-2;
-  background-color: var(--bgc-body);
-}
-.side-3 {
-  grid-area: side-3;
-  background-color: var(--bgc-body);
-}
-.side-4 {
-  grid-area: side-4;
   background-color: var(--bgc-body);
 }
 

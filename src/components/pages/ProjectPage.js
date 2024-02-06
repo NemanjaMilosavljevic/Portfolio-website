@@ -35,8 +35,6 @@ const ProjectPage = ({
 
       <div className={style["side-1"]}></div>
       <div className={style["side-2"]}></div>
-      <div className={style["side-3"]}></div>
-      <div className={style["side-4"]}></div>
 
       <div className={style["image-1"]}>
         <img
