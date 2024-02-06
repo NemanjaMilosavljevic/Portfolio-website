@@ -31,7 +31,7 @@
   grid-area: text-heading;
   margin-top: 1.75rem;
   padding: 0 70px;
-  font-size: 0.9rem;
+  font-size: 1rem;
 }
 
 .video {
@@ -92,7 +92,7 @@
 :is(.description-1, .description-2, .description-3) p {
   text-align: left;
   font-weight: 300;
-  font-size: 0.9rem;
+  font-size: 1rem;
 }
 
 .description-2 h1 {
