@@ -1,3 +1,35 @@
+@import url("https://fonts.cdnfonts.com/css/made-tommy-outline");
+@import url("https://fonts.cdnfonts.com/css/satoshi");
+@import url("https://fonts.cdnfonts.com/css/le-murmure");
+
 html {
   box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--bgc-body);
+  font-family: "Satoshi", sans-serif;
+  scroll-behavior: smooth;
+}
+
+img {
+  display: block;
+  width: 100%;
+}
+
+:root {
+  --bgc-body: #222;
+  --bgc-main: #fff;
+  --border-main: #222;
+  --color-footer: #c78437;
+  --color-orange-text: #c78437;
+  --bgc-button: #c78437;
+  --color-text: #222;
+  --inactive-indicator: #2222222d;
+  --active-inidicator: #c78437;
+  --white-color: white;
+  --black-color: #222;
+  --bgc-orange: #c78437;
 }

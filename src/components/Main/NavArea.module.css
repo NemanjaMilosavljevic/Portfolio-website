@@ -1,0 +1,252 @@
+.nav-area {
+  display: grid;
+  grid-template-columns: 45% repeat(3, minmax(100px, auto));
+  grid-template-rows: repeat(auto, minmax(200px, auto));
+  grid-template-areas:
+    "about-me  services services contact"
+    "about-me  projects tools tools";
+  gap: 0.5rem;
+  font-family: "MADE TOMMY Outline", sans-serif;
+  margin-top: 1rem;
+  margin-bottom: 10rem;
+  max-width: 80%;
+  margin-inline: auto;
+  position: relative;
+}
+
+.nav-area::after {
+  content: "";
+  position: absolute;
+  width: 99.5%;
+  border: 4px solid var(--bgc-body);
+  background-color: var(--bgc-body);
+  bottom: -10%;
+  right: 0;
+  border-radius: 5px;
+}
+
+.nav-area::before {
+  content: "";
+  position: absolute;
+  width: 45%;
+  border: 4px solid var(--bgc-body);
+  background-color: var(--bgc-body);
+  bottom: -18%;
+  right: 0;
+  border-radius: 5px;
+}
+
+.link {
+  text-decoration: none;
+  display: contents;
+}
+
+.about-me {
+  grid-area: about-me;
+}
+
+.services {
+  grid-area: services;
+  color: var(--color-orange-text);
+  font-size: clamp(2.5rem, 4vw, 4.8rem);
+  align-items: center;
+  justify-content: center;
+  padding-inline: 8px;
+}
+
+.contact {
+  grid-area: contact;
+  color: var(--color-orange-text);
+  font-size: clamp(2.5rem, 3.5vw, 4.8rem);
+  align-items: center;
+  justify-content: center;
+  padding-inline: 8px;
+}
+
+.nav-area .projects {
+  grid-area: projects;
+  display: flex;
+  font-family: "MADE Tommy Soft", sans-serif;
+  font-size: clamp(2.5rem, 5vw, 5.8rem);
+  font-weight: 600;
+  color: var(--color-orange-text);
+  background-color: var(--bgc-body);
+  padding: 6px;
+  align-items: center;
+  justify-content: center;
+  max-width: fit-content;
+  line-height: 1.4;
+}
+
+.tools {
+  grid-area: tools;
+  color: var(--color-orange-text);
+  font-size: clamp(2.5rem, 7vw, 5.8rem);
+  align-items: center;
+  justify-content: center;
+}
+
+.image-container {
+  min-width: 60%;
+}
+
+.text-container {
+  min-width: 30%;
+  font-family: "Satoshi", sans-serif;
+  display: flex;
+  flex-direction: column;
+  padding: 1vh;
+  text-align: center;
+  margin: auto auto;
+}
+
+.button {
+  background-color: var(--bgc-button);
+  color: var(--color-text);
+  font-weight: 600;
+  padding: 8px;
+  font-size: clamp(0.65rem, 1.6vw, 0.7rem);
+  border: none;
+  margin-top: 2rem;
+  border-radius: 4px;
+}
+
+.button:hover {
+  cursor: pointer;
+  opacity: 0.9;
+}
+
+.animated-container {
+  position: absolute;
+  top: 46%;
+  left: -6%;
+  transform: rotate(-90deg);
+  overflow: hidden;
+}
+
+.animated-container span {
+  font-family: "MADE Tommy Soft", sans-serif;
+  font-weight: bold;
+  color: var(--color-orange-text);
+  font-size: 3rem;
+  display: inline-block;
+  animation: slideup 7s linear infinite;
+  min-width: 100%;
+  max-height: 100%;
+  padding-left: 100%;
+}
+
+:is(.services, .contact, .tools):hover {
+  background-color: var(--bgc-body);
+  cursor: pointer;
+}
+
+@keyframes slideup {
+  0% {
+    transform: translate(0%);
+  }
+  to {
+    transform: translate(-100%);
+  }
+}
+
+@media screen and (max-width: 1280px) {
+  .nav-area {
+    grid-template-columns: auto minmax(250px, auto);
+    grid-template-areas:
+      "about-me  about-me about-me services"
+      "about-me  about-me about-me projects"
+      "contact  contact tools tools";
+  }
+
+  .nav-area .projects {
+    padding-left: 2.5vw;
+  }
+
+  .animated-container {
+    top: 38%;
+    left: 0%;
+  }
+}
+
+@media screen and (max-width: 990px) {
+  .animated-container {
+    display: none;
+  }
+
+  .text-container {
+    font-size: 0.8rem;
+  }
+
+  .nav-area .projects {
+    padding-left: 3.5vw;
+  }
+
+  .image-container img {
+    border-top-left-radius: 9px;
+    border-bottom-left-radius: 9px;
+  }
+
+  .nav-area::after {
+    content: "";
+    border: 1px solid var(--bgc-body);
+  }
+
+  .nav-area::before {
+    content: "";
+    border: 1px solid var(--bgc-body);
+  }
+}
+
+@media screen and (max-width: 770px) {
+  .nav-area {
+    grid-template-areas:
+      "about-me  about-me about-me about-me"
+      "services  services projects projects"
+      "contact  contact tools tools";
+  }
+
+  .nav-area .projects {
+    padding-left: 6.5vw;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .nav-area {
+    width: 100%;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "about-me"
+      "services"
+      "contact "
+      "tools";
+    margin-bottom: 1rem;
+  }
+
+  .nav-area::after {
+    content: none;
+  }
+
+  .nav-area::before {
+    content: none;
+  }
+
+  .nav-area .projects {
+    display: none;
+  }
+
+  .about-me {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .image-container img {
+    border-top-left-radius: 9px;
+    border-top-right-radius: 9px;
+    border-bottom-left-radius: 0;
+  }
+
+  .button {
+    margin-bottom: 0.5rem;
+  }
+}

@@ -1,0 +1,230 @@
+.grid {
+  display: grid;
+  grid-template-columns: 150px 1fr 1fr 150px;
+  grid-template-areas:
+    ". heading text-heading ."
+    ". video   video        ."
+    "side-1 image-1 description-1 side-2"
+    ". image-2 description-2 ."
+    "side-3 image-3 description-3 side-4"
+    "add-content add-content add-content add-content"
+    ". nav-left nav-right .";
+  font-family: "Satoshi", sans-serif;
+  position: relative;
+}
+
+.heading {
+  grid-area: heading;
+  color: var(--color-orange-text);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.heading h1 {
+  font-weight: 400;
+  font-size: clamp(1.25rem, 6vw + 1.25rem, 3rem);
+}
+
+.text-heading {
+  grid-area: text-heading;
+  margin-top: 1.75rem;
+  padding: 0 70px;
+  font-size: 0.8rem;
+}
+
+.video {
+  grid-area: video;
+  width: 100%;
+  outline: 2px solid black;
+  border-radius: 10px;
+  margin-bottom: 2rem;
+}
+
+.image-1 {
+  grid-area: image-1;
+  background-color: var(--bgc-body);
+}
+
+.description-1 {
+  grid-area: description-1;
+  background-color: var(--bgc-body);
+}
+
+.description-1 p {
+  color: var(--white-color);
+}
+
+.image-2 {
+  grid-area: image-2;
+}
+
+.description-2 {
+  grid-area: description-2;
+}
+
+.image-3 {
+  grid-area: image-3;
+  background-color: var(--bgc-body);
+}
+
+.description-3 {
+  grid-area: description-3;
+  background-color: var(--bgc-body);
+}
+
+.description-3 p {
+  color: var(--white-color);
+}
+
+:is(.description-1, .description-2, .description-3) {
+  padding: 0 70px;
+}
+
+:is(.description-1, .description-2, .description-3) h1 {
+  color: var(--white-color);
+  font-size: 3rem;
+  font-weight: 300;
+  margin: 4rem 0;
+}
+
+:is(.description-1, .description-2, .description-3) p {
+  text-align: left;
+  font-weight: 300;
+  font-size: 0.8rem;
+}
+
+.description-2 h1 {
+  color: var(--black-color);
+}
+
+.side-1 {
+  grid-area: side-1;
+  background-color: var(--bgc-body);
+}
+.side-2 {
+  grid-area: side-2;
+  background-color: var(--bgc-body);
+}
+.side-3 {
+  grid-area: side-3;
+  background-color: var(--bgc-body);
+}
+.side-4 {
+  grid-area: side-4;
+  background-color: var(--bgc-body);
+}
+
+.additional-content {
+  grid-area: add-content;
+}
+
+.grid .hidden {
+  display: none;
+}
+
+video::-webkit-media-controls-timeline {
+  align-self: center;
+  width: calc(100% - 64px);
+}
+
+.icon {
+  position: relative;
+  width: 2rem;
+  height: 2rem;
+  bottom: 0.25%;
+}
+
+.icon:hover {
+  cursor: pointer;
+}
+
+.project-navigation-left {
+  grid-area: nav-left;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-right: 2rem;
+  margin-bottom: 2rem;
+  margin-top: 3rem;
+}
+
+.project-navigation-right {
+  grid-area: nav-right;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-left: 2rem;
+  margin-bottom: 2rem;
+  margin-top: 3rem;
+}
+
+:is(.project-navigation-left, .project-navigation-right) span {
+  color: var(--color-orange-text);
+}
+
+@media screen and (max-width: 1280px) {
+  .grid {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "heading text-heading"
+      "video   video"
+      "image-1 description-1"
+      "image-2 description-2"
+      "image-3 description-3"
+      "add-content add-content"
+      "nav-left nav-right";
+  }
+
+  :is(.description-1, .description-2, .description-3) h1 {
+    margin: 1rem 0;
+  }
+
+  .video {
+    width: 80%;
+    margin-inline: auto;
+  }
+}
+
+@media screen and (max-width: 990px) {
+  .grid {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "heading heading"
+      "text-heading text-heading"
+      "video video"
+      "description-1 description-1"
+      "image-1 image-1"
+      "description-2 description-2"
+      "image-2 image-2"
+      "description-3 description-3"
+      "image-3 image-3"
+      "add-content add-content"
+      "nav-left nav-right";
+  }
+
+  :is(.description-1, .description-2, .description-3) h1 {
+    text-align: center;
+    margin-top: 2rem;
+  }
+
+  :is(.description-1, .description-2, .description-3) p {
+    text-align: justify;
+    margin-bottom: 3rem;
+  }
+
+  .video {
+    margin-top: 2rem;
+  }
+
+  .text-heading {
+    text-align: justify;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  :is(.project-navigation-left, .project-navigation-right) span {
+    font-size: 0.8rem;
+  }
+}

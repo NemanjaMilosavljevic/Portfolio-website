@@ -1,0 +1,307 @@
+.wrapper {
+  position: relative;
+}
+
+.wrapper p {
+  line-height: 1.5;
+}
+
+.wrapper h1 {
+  font-weight: 200;
+  font-size: clamp(2.5rem, 5vw, 5rem);
+  align-self: flex-start;
+  margin-bottom: 0;
+}
+
+.wrapper h2 {
+  font-size: 4rem;
+  margin-block: 0;
+}
+
+.hero {
+  display: flex;
+  flex-direction: row;
+  width: 68%;
+  margin-inline: auto;
+  padding-top: 10px;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+  justify-content: space-between;
+  gap: 4rem;
+  margin-bottom: 1rem;
+}
+
+.hero-image {
+  max-width: 35%;
+}
+
+.hero-text {
+  display: flex;
+  flex-direction: column;
+  width: clamp(370px, 40%, 550px);
+}
+
+.about {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 68%;
+  margin-inline: auto;
+  gap: 2rem;
+}
+
+.about-image {
+  margin-top: -10rem;
+}
+
+.about-text {
+  text-align: left;
+  align-self: flex-end;
+  width: 52%;
+  padding-inline: 20px;
+}
+
+.name {
+  position: absolute;
+  font-family: "MADE TOMMY Outline", sans-serif;
+  font-size: 6rem;
+  transform: rotate(-90deg);
+  left: -950px;
+  top: 50%;
+  color: var(--color-orange-text);
+  opacity: 0.5;
+  font-weight: 500;
+}
+
+.services,
+.tools,
+.contact {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 5rem;
+  margin-inline: auto;
+  width: 68%;
+  border-top: 1px solid var(--border-main);
+}
+
+.services ul {
+  list-style: none;
+  width: 50%;
+  align-self: flex-end;
+}
+
+.services li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border-bottom: 1px solid var(--border-main);
+}
+
+.services span {
+  font-size: 1.5rem;
+}
+
+.services li:not(.description):hover {
+  border: none;
+  box-shadow: inset 0 2px 5px rgb(0 0 0 / 20%);
+}
+
+/* CSS Transition */
+
+.outer {
+  display: flex;
+}
+
+.inner {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease-in;
+}
+
+.outer.show .inner {
+  max-height: 100%;
+}
+
+.inner p {
+  padding: 10px;
+  text-align: left;
+}
+
+/* ------- */
+
+.table {
+  align-self: flex-end;
+  border-spacing: 0;
+  margin-bottom: 1rem;
+  width: 52%;
+}
+
+.table thead tr {
+  color: var(--color-orange-text);
+  font-size: 0.8rem;
+  text-align: center;
+}
+
+.table th {
+  font-weight: 200;
+}
+
+.table td,
+.table th {
+  padding: 10px 20px;
+  text-align: center;
+}
+
+.table tbody tr :not(:nth-child(3)) {
+  border-right: 1px solid black;
+}
+
+.contact-info-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  align-self: flex-end;
+  margin-top: 2rem;
+  margin-bottom: 5rem;
+}
+
+.contact-info-container span {
+  font-size: 0.9rem;
+  margin-right: 1rem;
+}
+
+.contact-info img {
+  width: 20px;
+  height: 20px;
+}
+
+.contact-info {
+  direction: rtl;
+}
+
+.link {
+  text-decoration: none;
+  color: var(--color-text);
+  display: flex;
+  padding-block: 2px;
+}
+
+@media screen and (max-width: 1280px) {
+  .name {
+    font-size: 4.5rem;
+    left: -700px;
+    top: 35%;
+  }
+
+  .services ul {
+    width: 60%;
+  }
+
+  .about-image {
+    margin-top: -2rem;
+  }
+}
+
+@media screen and (max-width: 990px) {
+  .name {
+    font-size: 3.5rem;
+    left: -550px;
+  }
+
+  .about-image {
+    margin-top: 0rem;
+  }
+
+  .wrapper h2 {
+    font-size: 2.25rem;
+  }
+
+  .wrapper p {
+    font-size: 0.8rem;
+  }
+}
+
+@media screen and (max-width: 770px) {
+  .name {
+    display: none;
+  }
+
+  .hero {
+    flex-direction: column;
+    padding: 0;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .hero-text {
+    width: 100%;
+  }
+
+  .wrapper h2 {
+    text-align: center;
+    margin-top: 2rem;
+  }
+
+  .about {
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 1rem;
+  }
+
+  .about-image {
+    display: none;
+  }
+
+  .about-text {
+    width: 100%;
+    padding: 0;
+  }
+
+  .services,
+  .tools,
+  .contact {
+    width: 90%;
+  }
+
+  .services ul {
+    width: 50%;
+    align-self: center;
+    padding: 0;
+  }
+
+  .wrapper h1 {
+    align-self: center;
+  }
+
+  .wrapper p {
+    font-size: 1rem;
+    text-align: center;
+  }
+
+  .table {
+    align-self: center;
+    width: 70%;
+  }
+
+  .contact-info-container {
+    align-self: center;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .services ul {
+    width: 80%;
+  }
+
+  .wrapper p {
+    text-align: justify;
+  }
+
+  .table {
+    width: 100%;
+  }
+}
