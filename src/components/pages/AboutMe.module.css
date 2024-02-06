@@ -1,7 +1,3 @@
-.wrapper {
-  position: relative;
-}
-
 .wrapper p {
   line-height: 1.5;
 }
@@ -67,7 +63,7 @@
   font-size: 6rem;
   transform: rotate(-90deg);
   left: -950px;
-  top: 50%;
+  top: 130%;
   color: var(--color-orange-text);
   opacity: 0.5;
   font-weight: 500;
@@ -194,7 +190,7 @@
   .name {
     font-size: 4.5rem;
     left: -700px;
-    top: 35%;
+    top: 100%;
   }
 
   .services ul {
@@ -210,6 +206,7 @@
   .name {
     font-size: 3.5rem;
     left: -550px;
+    top: 80%;
   }
 
   .about-image {
