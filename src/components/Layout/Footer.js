@@ -1,21 +1,28 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import style from "./Footer.module.css";
+import { useEffect } from "react";
+import { scrollToTop } from "../../util/util";
 
-const Footer = ({ scrollToTop }) => {
+const Footer = () => {
+  const { hash } = useLocation();
+
+  useEffect(() => {
+    const element = document.getElementById(hash.replace("#", ""));
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  }, [hash]);
+
   return (
     <div className={style.footer}>
       <ul className={style["list-link"]}>
         <li>
-          <Link to="/home" className={style.link} onClick={() => scrollToTop()}>
+          <Link to="/home" className={style.link} onClick={scrollToTop}>
             HOME
           </Link>
         </li>
         <li>
-          <Link
-            to="/about-me"
-            className={style.link}
-            onClick={() => scrollToTop()}
-          >
+          <Link to="/about-me" className={style.link} onClick={scrollToTop}>
             ĐINA'S STORY
           </Link>
         </li>

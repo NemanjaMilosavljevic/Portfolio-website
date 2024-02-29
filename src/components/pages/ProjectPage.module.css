@@ -217,4 +217,8 @@ video::-webkit-media-controls-timeline {
   :is(.project-navigation-left, .project-navigation-right) span {
     font-size: 0.8rem;
   }
+
+  .video {
+    width: 100%;
+  }
 }

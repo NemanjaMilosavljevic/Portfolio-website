@@ -6,18 +6,17 @@ import {
   faChevronRight,
 } from "@fortawesome/free-solid-svg-icons";
 import CSSTransition from "react-transition-group/CSSTransition";
-
 import { Link } from "react-router-dom";
+import { projectsData } from "../../data/data";
+import { scrollToTop } from "../../util/util";
 
 const ProjectCard = ({
   goToPreviousProjectHandler,
-  projectsData,
   currentProject,
   goToNextProjectHandler,
   pickProjectFromIndicatorHandler,
-  scrollToTop,
   isProjectChanged,
-  setIsChangeProjectToFalse,
+  resetIsProjectChangedState,
 }) => {
   return (
     <div className={style["project-card-container"]}>
@@ -38,7 +37,7 @@ const ProjectCard = ({
             enterActive: `${style.animationEnter}`,
             exit: "",
             exitActive: `${style.animationExit}`,
-            onExited: setIsChangeProjectToFalse(),
+            onExited: resetIsProjectChangedState(),
           }}
         >
           <Container
@@ -57,7 +56,7 @@ const ProjectCard = ({
             <div className={style["text-container"]}>
               <h1>{card.title}</h1>
               <p>{card.desription}</p>
-              <Link to={`/projects/${card.id}`} onClick={() => scrollToTop()}>
+              <Link to={`/projects/${currentProject}`} onClick={scrollToTop}>
                 <button>{card.buttonText}</button>
               </Link>
             </div>

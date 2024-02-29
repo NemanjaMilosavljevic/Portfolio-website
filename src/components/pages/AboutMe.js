@@ -4,9 +4,9 @@ import { Link, useLocation } from "react-router-dom";
 
 const AboutMe = () => {
   const [isVisible, setIsVisible] = useState({
-    firstElement: false,
-    secondElement: false,
-    thirdElement: false,
+    infoWebDesign: false,
+    infoUXDesign: false,
+    infoBranding: false,
   });
 
   const { hash } = useLocation();
@@ -20,22 +20,30 @@ const AboutMe = () => {
 
   const toggleServiceInfo = (e) => {
     if (
+      e.target.tagName === "P" ||
+      e.target.className === style.inner ||
+      e.target.className === style.outer
+    ) {
+      return;
+    }
+
+    if (
       e.target.firstChild.textContent === "Web Design" ||
       e.target.previousSibling?.textContent === "Web Design"
     ) {
       setIsVisible((prevState) => {
-        return { ...prevState, firstElement: !prevState.firstElement };
+        return { ...prevState, infoWebDesign: !prevState.infoWebDesign };
       });
     } else if (
       e.target.firstChild.textContent === "UX/UI Design" ||
       e.target.previousSibling?.textContent === "UX/UI Design"
     ) {
       setIsVisible((prevState) => {
-        return { ...prevState, secondElement: !prevState.secondElement };
+        return { ...prevState, infoUXDesign: !prevState.infoUXDesign };
       });
     } else {
       setIsVisible((prevState) => {
-        return { ...prevState, thirdElement: !prevState.thirdElement };
+        return { ...prevState, infoBranding: !prevState.infoBranding };
       });
     }
   };
@@ -68,7 +76,7 @@ const AboutMe = () => {
       <div className={style["about"]}>
         <div className={style["about-image"]}>
           <img
-            src="  Images/Second-image@1x.png"
+            src="Images/Second-image@1x.png"
             srcSet="Images/Second-image@1x.png, Images/Second-image@2x.png 2x, Images/Second-image@3x.png 3x"
             alt="Personal-img-2"
           />
@@ -115,23 +123,20 @@ const AboutMe = () => {
 
           <div
             className={`${style["outer"]} ${
-              isVisible.firstElement ? style["show"] : ""
+              isVisible.infoWebDesign ? style["show"] : ""
             }`}
           >
-            <div>
-              <div className={style.inner}>
-                <p>
-                  Designing beautiful Websites, Landing pages, Blogs, and
-                  E-commerce sites from scratch to final design.
-                </p>
-                <p>
-                  I also use Webflow on a basic level but am currently learning
-                  it for more advanced use (more complex content and
-                  animations). This portfolio website is the showcase of my use
-                  of Webflow. I did the design in Figma and developed it in
-                  Webflow.
-                </p>
-              </div>
+            <div className={style.inner}>
+              <p>
+                Designing beautiful Websites, Landing pages, Blogs, and
+                E-commerce sites from scratch to final design.
+              </p>
+              <p>
+                I also use Webflow on a basic level but am currently learning it
+                for more advanced use (more complex content and animations).
+                This portfolio website is the showcase of my use of Webflow. I
+                did the design in Figma and developed it in Webflow.
+              </p>
             </div>
           </div>
 
@@ -141,40 +146,37 @@ const AboutMe = () => {
           </li>
           <div
             className={`${style["outer"]} ${
-              isVisible.secondElement ? style["show"] : ""
+              isVisible.infoUXDesign ? style["show"] : ""
             }`}
           >
-            <div>
-              <div className={style.inner}>
-                <p>
-                  User Experience (UX) and User Interface design done in Figma,
-                  including the creation of Wireframes, Prototypes, and Mockups.
-                </p>
-                <p>
-                  The starting point is User research in methods based on the
-                  case, then creating LoFi designs which follow HiFi design in
-                  the final stage.
-                </p>
-              </div>
+            <div className={style.inner}>
+              <p>
+                User Experience (UX) and User Interface design done in Figma,
+                including the creation of Wireframes, Prototypes, and Mockups.
+              </p>
+              <p>
+                The starting point is User research in methods based on the
+                case, then creating LoFi designs which follow HiFi design in the
+                final stage.
+              </p>
             </div>
           </div>
+
           <li>
             <div>Branding</div>
             <span>+</span>
           </li>
           <div
             className={`${style["outer"]} ${
-              isVisible.thirdElement ? style["show"] : ""
+              isVisible.infoBranding ? style["show"] : ""
             }`}
           >
-            <div>
-              <div className={style.inner}>
-                <p>
-                  Creating the Visual and Brand identity based on the client's
-                  wishes and goals. All in perfect balance and harmony with the
-                  brand policy.
-                </p>
-              </div>
+            <div className={style.inner}>
+              <p>
+                Creating the Visual and Brand identity based on the client's
+                wishes and goals. All in perfect balance and harmony with the
+                brand policy.
+              </p>
             </div>
           </div>
         </ul>

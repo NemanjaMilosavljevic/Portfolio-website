@@ -27,17 +27,6 @@
   animation: slidein 12s linear infinite;
 }
 
-.project-heading {
-  color: var(--color-orange-text);
-  font-family: "MADE TOMMY Outline", sans-serif;
-  font-size: clamp(3.25rem, 10vw, 10rem);
-  font-weight: 500;
-  margin-top: 7rem;
-  z-index: -2;
-  max-width: 80%;
-  margin-inline: auto;
-}
-
 @keyframes slidein {
   0% {
     transform: translate(0, 0);
@@ -48,11 +37,6 @@
 }
 
 @media screen and (max-width: 480px) {
-  .project-heading {
-    margin-top: 3rem;
-    margin-bottom: 1rem;
-  }
-
   .animated-container span {
     font-size: 3rem;
   }

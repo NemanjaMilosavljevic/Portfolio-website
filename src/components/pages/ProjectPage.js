@@ -6,12 +6,12 @@ import {
   faChevronRight,
 } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
+import { projectsPages } from "../../data/data";
+import { scrollToTop } from "../../util/util";
 
 const ProjectPage = ({
-  projects,
   goToNextProjectHandler,
   goToPreviousProjectHandler,
-  scrollToTop,
 }) => {
   const params = useParams();
 
@@ -20,16 +20,16 @@ const ProjectPage = ({
   return (
     <div className={style.grid}>
       <div className={style["heading"]}>
-        <h1>{projects[i].heading}</h1>
+        <h1>{projectsPages[i].heading}</h1>
       </div>
 
       <div className={style["text-heading"]} style={{ whiteSpace: "pre-line" }}>
-        <p>{projects[i].textHeading}</p>
+        <p>{projectsPages[i].textHeading}</p>
       </div>
 
       <video
         className={`${i === 0 ? style.hidden : style.video}`}
-        src={[projects[i].video]}
+        src={[projectsPages[i].video]}
         controls
       ></video>
 
@@ -38,57 +38,61 @@ const ProjectPage = ({
 
       <div className={style["image-1"]}>
         <img
-          src={projects[i].firstImage}
-          srcSet={`${projects[i].firstImage[0]}, ${projects[i].firstImage[1]} 2x, ${projects[i].firstImage[2]} 3x`}
+          src={projectsPages[i].firstImage}
+          srcSet={`${projectsPages[i].firstImage[0]}, ${projectsPages[i].firstImage[1]} 2x, ${projectsPages[i].firstImage[2]} 3x`}
           alt="Img-1"
         />
       </div>
 
       <div className={style["description-1"]}>
-        <h1>{projects[i].firstHeading}</h1>
-        <p style={{ whiteSpace: "pre-line" }}>{projects[i].firstDescription}</p>
+        <h1>{projectsPages[i].firstHeading}</h1>
+        <p style={{ whiteSpace: "pre-line" }}>
+          {projectsPages[i].firstDescription}
+        </p>
       </div>
 
       <div className={style["image-2"]}>
         <img
-          src={projects[i].secondImage}
-          srcSet={`${projects[i].secondImage[0]}, ${projects[i].secondImage[1]} 2x, ${projects[i].secondImage[2]} 3x`}
+          src={projectsPages[i].secondImage}
+          srcSet={`${projectsPages[i].secondImage[0]}, ${projectsPages[i].secondImage[1]} 2x, ${projectsPages[i].secondImage[2]} 3x`}
           alt="Img-2"
         />
       </div>
 
       <div className={style["description-2"]}>
-        <h1>{projects[i].secondHeading}</h1>
+        <h1>{projectsPages[i].secondHeading}</h1>
         <p style={{ whiteSpace: "pre-line" }}>
-          {projects[i].secondDescription}
+          {projectsPages[i].secondDescription}
         </p>
       </div>
 
       <div className={style["image-3"]}>
         <img
-          src={projects[i].thirdImage[0]}
-          srcSet={`${projects[i].thirdImage[0]}, ${projects[i].thirdImage[1]} 2x, ${projects[i].thirdImage[2]} 3x`}
+          src={projectsPages[i].thirdImage[0]}
+          srcSet={`${projectsPages[i].thirdImage[0]}, ${projectsPages[i].thirdImage[1]} 2x, ${projectsPages[i].thirdImage[2]} 3x`}
           alt="Img-3"
         />
       </div>
 
       <div className={style["description-3"]}>
-        <h1>{projects[i].thirdHeading}</h1>
-        <p style={{ whiteSpace: "pre-line" }}>{projects[i].thirdDescription}</p>
+        <h1>{projectsPages[i].thirdHeading}</h1>
+        <p style={{ whiteSpace: "pre-line" }}>
+          {projectsPages[i].thirdDescription}
+        </p>
       </div>
 
       <div
         className={`${
-          Object.keys(projects[i]).length > 12
+          Object.keys(projectsPages[i]).length > 12
             ? style["additional-content"]
             : style["hidden"]
         }`}
       >
         <img
-          src={projects[i].forthImage}
+          src={projectsPages[i].forthImage}
           srcSet={`${
             i === 2
-              ? `${projects[i].forthImage[0]}, ${projects[i].forthImage[1]} 2x, ${projects[i].forthImage[2]} 3x`
+              ? `${projectsPages[i].forthImage[0]}, ${projectsPages[i].forthImage[1]} 2x, ${projectsPages[i].forthImage[2]} 3x`
               : ""
           }`}
           alt="Img-4"
@@ -100,7 +104,7 @@ const ProjectPage = ({
           to={`/projects/${
             +params.projectId === 1 ? 5 : +params.projectId - 1
           }`}
-          onClick={() => scrollToTop()}
+          onClick={scrollToTop}
         >
           <FontAwesomeIcon
             icon={faChevronLeft}
@@ -117,7 +121,7 @@ const ProjectPage = ({
           to={`/projects/${
             +params.projectId === 5 ? 1 : +params.projectId + 1
           }`}
-          onClick={() => scrollToTop()}
+          onClick={scrollToTop}
         >
           <FontAwesomeIcon
             icon={faChevronRight}
