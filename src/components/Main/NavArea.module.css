@@ -74,7 +74,6 @@
   padding: 6px;
   align-items: center;
   justify-content: center;
-  max-width: fit-content;
   line-height: 1.4;
 }
 
@@ -116,29 +115,13 @@
   opacity: 0.9;
 }
 
-.animated-container {
-  position: absolute;
-  top: 46%;
-  left: -6%;
-  transform: rotate(-90deg);
-  overflow: hidden;
-}
-
-.animated-container span {
-  font-family: "MADE Tommy Soft", sans-serif;
-  font-weight: bold;
-  color: var(--color-orange-text);
-  font-size: 3rem;
-  display: inline-block;
-  animation: slideup 7s linear infinite;
-  min-width: 100%;
-  max-height: 100%;
-  padding-left: 100%;
-}
-
 :is(.services, .contact, .tools):hover {
   background-color: var(--bgc-body);
   cursor: pointer;
+}
+
+.proba {
+  word-wrap: break-word;
 }
 
 @keyframes slideup {
@@ -162,18 +145,9 @@
   .nav-area .projects {
     padding-left: 2.5vw;
   }
-
-  .animated-container {
-    top: 38%;
-    left: 0%;
-  }
 }
 
 @media screen and (max-width: 990px) {
-  .animated-container {
-    display: none;
-  }
-
   .text-container {
     font-size: 0.8rem;
   }

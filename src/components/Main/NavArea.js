@@ -5,10 +5,6 @@ import { Link } from "react-router-dom";
 const NavArea = () => {
   return (
     <div className={style["nav-area"]}>
-      <div className={style["animated-container"]}>
-        <span>ĐURĐINA MILOSAVLJEVIĆ</span>
-      </div>
-
       <Container className={style["about-me"]}>
         <div className={style["image-container"]}>
           <img

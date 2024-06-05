@@ -18,7 +18,7 @@
 .animated-container span {
   font-family: "MADE TOMMY Outline", sans-serif;
   color: var(--color-orange-text);
-  font-size: 4.5rem;
+  font-size: 4rem;
   display: inline-block;
   white-space: nowrap;
   min-width: 100%;
